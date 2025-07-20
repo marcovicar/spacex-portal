@@ -12,11 +12,3 @@ export interface Launch {
   };
 }
 
-export interface GetLaunchesCountData {
-  launchesPastResult: {
-    result: {
-      totalCount: number;
-    };
-  };
-}
-
