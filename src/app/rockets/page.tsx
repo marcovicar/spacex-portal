@@ -29,7 +29,7 @@ export default function RocketsPage() {
       </h1>
       <div className="flex flex-col gap-y-6">
         {loading && data.rockets.length === 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 gap-6">
             {Array.from({ length: 4 }).map((_, i) => (
               <RocketCardSkeleton key={i} />
             ))}
