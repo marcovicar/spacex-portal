@@ -4,22 +4,22 @@ import {
   Card,
   CardContent,
   CardHeader,
-  CardTitle,
-  CardDescription,
 } from '@/components/ui/card'
 
 export function RocketCard({ rocket }: { rocket: Rocket }) {
   return (
-    <Card className="bg-zinc-900 border border-zinc-600 rounded-xl p-6 shadow transition-all duration-300 hover:scale-[1.01] animate-fade-in">
+    <Card className="bg-zinc-900 border border-zinc-600 rounded-xl p-4 sm:p-6 shadow transition-all duration-300 hover:scale-[1.01] animate-fade-in">
       <CardHeader className="space-y-1 pb-2">
-        <h2 className="text-2xl font-bebas font-semibold uppercase text-white tracking-wide">{rocket.name}</h2>
-        <p className="text-white italic text-sm">{rocket.type}</p>
+        <h2 className="text-xl sm:text-2xl font-bebas font-semibold uppercase text-white tracking-wide">
+          {rocket.name}
+        </h2>
+        <p className="text-white italic text-xs sm:text-sm">{rocket.type}</p>
       </CardHeader>
 
       <CardContent className="space-y-3">
-        <p className="text-white">{rocket.description}</p>
+        <p className="text-white text-sm sm:text-base">{rocket.description}</p>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-2 text-sm text-white mt-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-2 text-xs sm:text-sm text-white mt-4">
           <p>🟢 <strong className="text-white">Active:</strong> {rocket.active ? "Yes" : "No"}</p>
           <p>🚀 <strong className="text-white">Stages:</strong> {rocket.stages}</p>
           <p>🔥 <strong className="text-white">Boosters:</strong> {rocket.boosters}</p>
@@ -31,6 +31,5 @@ export function RocketCard({ rocket }: { rocket: Rocket }) {
         </div>
       </CardContent>
     </Card>
-
   )
 }
