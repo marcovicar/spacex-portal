@@ -2,6 +2,7 @@
 
 import useInfiniteLaunches from '@/hooks/useInfiniteLaunches';
 import LaunchCard from "@/components/custom/LaunchCard";
+import {SkeletonLaunchCard} from "@/components/custom/SkeletonLaunchCard";
 
 export default function LaunchesPage() {
   const limit = 10;
@@ -22,16 +23,26 @@ export default function LaunchesPage() {
         Launches - SpaceX <span className="text-pink-500 text-2xl">🚀</span>
       </h1>
 
-      <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {launches.map((launch) => (
-          <li key={launch.id}>
-            <LaunchCard launch={launch} />
-          </li>
-        ))}
-      </ul>
+      {loading && launches.length === 0 ? (
+        <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {Array.from({ length: 6 }).map((_, i) => (
+            <li key={i}>
+              <SkeletonLaunchCard />
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {launches.map((launch) => (
+            <li key={launch.id}>
+              <LaunchCard launch={launch} />
+            </li>
+          ))}
+        </ul>
+      )}
 
       {launches && launches.length > 0 && (
-        <div ref={loaderRef} className="mt-12 h-10 flex justify-center items-center text-sm text-zinc-400" />
+        <div ref={loaderRef} className="mt-12 h-20 flex justify-center items-center text-sm text-zinc-400" />
       )}
     </div>
   );
