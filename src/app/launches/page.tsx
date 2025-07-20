@@ -2,10 +2,10 @@
 
 import useInfiniteLaunches from '@/hooks/useInfiniteLaunches';
 import LaunchCard from "@/components/custom/LaunchCard";
-import {SkeletonLaunchCard} from "@/components/custom/SkeletonLaunchCard";
+import SkeletonLaunchCard from "@/components/custom/SkeletonLaunchCard";
 
 export default function LaunchesPage() {
-  const limit = 10;
+  const limit = 40;
 
   const {
     launches,
@@ -19,8 +19,8 @@ export default function LaunchesPage() {
 
   return (
     <div className="min-h-screen bg-black text-white px-6 py-10">
-      <h1 className="font-bebas text-white text-5xl uppercase tracking-widest mb-8">
-        Launches - SpaceX <span className="text-pink-500 text-2xl">🚀</span>
+      <h1 className="font-bebas font-semibold text-white text-3xl uppercase tracking-widest mb-10 mt-8">
+        Launches - SpaceX
       </h1>
 
       {loading && launches.length === 0 ? (
