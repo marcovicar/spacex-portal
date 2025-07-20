@@ -60,10 +60,6 @@ export default function useInfiniteLaunches(limit = 10) {
             setHasMore(false);
             return;
           }
-
-          console.log("console Fetching offset:", nextOffset);
-          console.log("console Lote recebido:", newLaunches.length);
-          console.log("console Próximo offset:", allLaunches.length);
         }
       },
       { threshold: 1.0 }
@@ -71,7 +67,7 @@ export default function useInfiniteLaunches(limit = 10) {
 
     observer.observe(loaderRef.current);
     return () => observer.disconnect();
-  }, [fetchMore, isFetchingMore, allLaunches, hasMore, limit, offset]);
+  }, [fetchMore, isFetchingMore, allLaunches, hasMore, limit, offset, data]);
 
   return {
     launches: allLaunches,
