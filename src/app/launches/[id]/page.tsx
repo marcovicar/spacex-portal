@@ -54,25 +54,34 @@ export default function LaunchDetailsPage({ params }: { params: Promise<{ id: st
 
       <p className="text-lg">{launch?.details || 'No details available for this mission.'}</p>
 
-      {launch?.ships?.filter(Boolean).map((ship, index) => (
-        ship?.name && (
-          <li key={index} className="flex items-center gap-4">
-            {ship?.image && (
-              <Image
-                src={ship.image}
-                alt={ship.name}
-                width={100}
-                height={100}
-                className="rounded object-cover w-24 h-24"
-              />
-            )}
-            <div>
-              <p className="font-bold text-white">{ship?.name || ""}</p>
-              <p className="text-zinc-400 text-sm">Port: {ship?.home_port || ""}</p>
-            </div>
-          </li>
-        )
-      ))}
+      {launch?.ships?.filter(Boolean).length > 0 ? (
+        <ul className="space-y-4">
+          {launch.ships
+            .filter(Boolean)
+            .map((ship, index) => (
+              ship?.name && (
+                <li key={index} className="flex items-center gap-4">
+                  {ship?.image && (
+                    <Image
+                      src={ship.image}
+                      alt={ship.name}
+                      width={100}
+                      height={100}
+                      className="rounded object-cover w-24 h-24"
+                    />
+                  )}
+                  <div>
+                    <p className="font-bold text-white">{ship.name}</p>
+                    <p className="text-zinc-400 text-sm">Port: {ship.home_port || "Unknown"}</p>
+                  </div>
+                </li>
+              )
+            ))}
+        </ul>
+      ) : (
+        <p className="text-zinc-400">🚀 No Ship information available</p>
+      )}
+
 
       {launch?.launch_site ? (
         <p>📍 {launch.launch_site.site_name_long}</p>
