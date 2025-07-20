@@ -20,7 +20,7 @@ export default function LaunchesPage() {
   return (
     <div className="min-h-screen bg-black text-white px-6 py-10">
       <h1 className="font-bebas font-semibold text-white text-3xl uppercase tracking-widest mb-10 mt-8">
-        Launches - SpaceX
+        Launches
       </h1>
 
       {loading && launches.length === 0 ? (
