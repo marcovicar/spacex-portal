@@ -3,6 +3,8 @@ import Image from "next/image"
 import { format } from "date-fns"
 import { Launch } from "@/types/launch"
 import {useState} from "react";
+import {Button} from "@/components/ui/button";
+import Link from "next/link";
 
 interface LaunchCardProps {
   launch: Launch;
@@ -95,11 +97,11 @@ export default function LaunchCard({ launch }: LaunchCardProps) {
         </span>
 
         <div className="flex items-center gap-2 mt-4">
-          <button
-            className="mt-4 border cursor-pointer border-white px-4 py-2 text-sm uppercase font-medium text-white hover:bg-white hover:text-black transition-all duration-200"
+          <Button asChild
+            className="mt-4 border rounded-none cursor-pointer border-white px-4 py-2 text-sm uppercase font-medium text-white hover:bg-white hover:text-black transition-all duration-200"
           >
-            Learn More
-          </button>
+            <Link href={`/launches/${launch.id}`}>See Details</Link>
+          </Button>
         </div>
       </CardContent>
     </Card>
