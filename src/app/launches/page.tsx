@@ -11,7 +11,6 @@ export default function LaunchesPage() {
     launches,
     loading,
     error,
-    hasMore,
     loaderRef,
   } = useInfiniteLaunches(limit);
 

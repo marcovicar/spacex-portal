@@ -34,7 +34,7 @@ export default function HomePage() {
       <section className="text-center max-w-3xl mx-auto space-y-4 pt-8">
         <h2 className="text-3xl font-semibold uppercase font-bebas">About the Portal</h2>
         <p className="text-zinc-400 text-base">
-          This portal is a tribute to space exploration powered by the SpaceX API. You can explore previous missions, understand the rocket technology, and dive into humanity's leap toward the stars.
+          {"This portal is a tribute to space exploration powered by the SpaceX API. You can explore previous missions, understand the rocket technology, and dive into humanity's leap toward the stars."}
         </p>
       </section>
 

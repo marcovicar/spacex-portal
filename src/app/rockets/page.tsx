@@ -17,7 +17,7 @@ export default function RocketsPage() {
     return (
       <div className="text-white text-center py-20">
         <h2 className="text-2xl font-semibold mb-4">No rockets found</h2>
-        <p className="text-zinc-400">We couldn't retrieve any rocket data from the SpaceX API. Please try again later.</p>
+        <p className="text-zinc-400">{"We couldn't retrieve any rocket data from the SpaceX API. Please try again later."}</p>
       </div>
     );
   }
@@ -41,7 +41,7 @@ export default function RocketsPage() {
         ) : (
           <>
             <p className="font-semibold mb-4">No rockets found</p>
-            <p className="text-zinc-400">We couldn't retrieve any rocket data from the SpaceX API. Please try again later.</p>
+            <p className="text-zinc-400">{"We couldn't retrieve any rocket data from the SpaceX API. Please try again later."}</p>
           </>
         )}
       </div>

@@ -56,7 +56,7 @@ export default function LaunchDetailsPage({ params }: { params: Promise<{ id: st
 
       <p className="text-lg">{launch?.details || 'No details available for this mission.'}</p>
 
-      {launch?.ships?.filter(Boolean).length > 0 ? (
+      {launch && launch.ships && launch?.ships?.filter(Boolean).length > 0 ? (
         <ul className="space-y-4">
           {launch.ships
             .filter(Boolean)
@@ -83,7 +83,6 @@ export default function LaunchDetailsPage({ params }: { params: Promise<{ id: st
       ) : (
         <p className="text-zinc-400">🚀 No Ship information available</p>
       )}
-
 
       {launch?.launch_site ? (
         <p>📍 {launch.launch_site.site_name_long}</p>
@@ -129,9 +128,9 @@ export default function LaunchDetailsPage({ params }: { params: Promise<{ id: st
         </div>
       </div>
 
-      {launch?.links?.flickr_images?.length > 0 && (
+      {(launch?.links?.flickr_images ?? []).length > 0 && (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-6">
-          {launch.links.flickr_images.map((url: string, index: number) => (
+          {launch?.links?.flickr_images?.map((url: string, index: number) => (
             <Image
               key={index}
               src={url}
