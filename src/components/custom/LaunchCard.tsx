@@ -100,7 +100,7 @@ export default function LaunchCard({ launch }: LaunchCardProps) {
           <Button asChild
             className="mt-4 border rounded-none cursor-pointer border-white px-4 py-2 text-sm uppercase font-medium text-white hover:bg-white hover:text-black transition-all duration-200"
           >
-            <Link href={`/launches/${launch.id}`}>See Details</Link>
+            <Link data-testid="launch-card" href={`/launches/${launch.id}`}>See Details</Link>
           </Button>
         </div>
       </CardContent>
