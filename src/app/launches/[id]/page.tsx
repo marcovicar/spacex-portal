@@ -10,6 +10,7 @@ import { Badge } from "@/components/ui/badge";
 import { ExternalLink, BookOpen, Newspaper, Play } from "lucide-react";
 import {LaunchDetailsData} from "@/types/launchDetails";
 import LaunchDetailsSkeleton from "@/components/custom/LaunchDetailsSkeleton";
+import { BackButton } from '@/components/custom/BackButton';
 
 export default function LaunchDetailsPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = use(params)
@@ -33,6 +34,7 @@ export default function LaunchDetailsPage({ params }: { params: Promise<{ id: st
 
   return (
     <div className="min-h-screen bg-black text-white px-6 py-10 space-y-6">
+      <BackButton />
       <h1 className="text-4xl font-bebas font-semibold uppercase tracking-widest">{launch?.mission_name || ""}</h1>
       <p className="text-white">{dateFormatted}</p>
 
