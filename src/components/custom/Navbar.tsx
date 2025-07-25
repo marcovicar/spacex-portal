@@ -8,11 +8,13 @@ import {
 } from "@/components/ui/navigation-menu"
 import { Menu, X } from "lucide-react"
 import Link from "next/link"
-import { useState } from "react"
+import {useEffect, useState} from "react"
 import { cn } from "@/lib/utils"
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
 
   const toggleMenu = () => setMenuOpen((prev) => !prev);
   const closeMenu = () => setMenuOpen(false);
@@ -23,8 +25,21 @@ export default function Navbar() {
     { href: "/rockets", label: "Rockets" },
   ];
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+
   return (
-    <nav className="w-full bg-black border-b border-zinc-800 px-6 py-4 sticky top-0 z-50">
+    <nav className={cn(
+      "w-full  px-6 py-4 sticky top-0 z-50 duration-300",
+      isScrolled ? "bg-black/90 border-b border-zinc-800" : ""
+    )}>
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <Link href="/" className="text-white font-bold text-xl tracking-widest font-bebas uppercase">
           SpaceX Portal 🚀
