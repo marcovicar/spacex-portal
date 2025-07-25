@@ -28,13 +28,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${barlow.variable} ${bebas.variable} antialiased`}
+        className={`${barlow.variable} ${bebas.variable} antialiased bg-black`}
       >
         <Navbar />
         <div className="w-full bg-black">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {children}
-            <footer className="text-center text-zinc-500 border-t border-zinc-800 py-10">
+            <footer className="text-center text-white border-t border-zinc-800 py-10">
               &copy; {new Date().getFullYear()} SpaceX Portal — Made by @marcovicar
             </footer>
           </div>
